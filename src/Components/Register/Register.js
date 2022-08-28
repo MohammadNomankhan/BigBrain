@@ -24,12 +24,12 @@ class Register extends React.Component {
 		this.setState({passwordReg: event.target.value})
 	}
 
-	onSubmitted = async () => {
-	// console.log(this.state);	
-
+	onSubmitted = async (e) => {	
+		e.preventDefault();
     const response = await fetch('http://localhost:3000/register', {
       method: 'POST',
       mode : 'cors',
+      referrerPolicy: 'no-referrer', 
       headers: {
       	'Content-Type': 'application/json'
       },
@@ -40,19 +40,15 @@ class Register extends React.Component {
       })
     })
 
-    // console.log(response);
-
+   
     const user = await response.json(); 
-   	console.log(user);
-    if(user){
+      if(user.id){
     	this.props.loaduser(user);
     	this.props.onRouteChange('home');
     }
-      
   }
 
 	render(){
-		// const { onRouteChange } = this.props;
 		return (
 		<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l shadow-5 mw6 center ">
 			<main className="pa4 black-80">
@@ -61,22 +57,23 @@ class Register extends React.Component {
 			      <legend className="f1 fw6 ph0 mh0">Register</legend>
 			      
 			      <div className="mt3">
-			        <label className="db fw6 lh-copy f6" for="name">Name</label>
+			        <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
 			        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="text" name="name"  id="name" 
+			        	required
 			        	onChange = {this.onNameChanged}
 		        	/>
 			      </div>
 
 			      <div className="mt3">
-			        <label className="db fw6 lh-copy f6" for="email-address">Email</label>
+			        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 			        <input className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="email" name="email-address"  id="email-address" 
 			        	onChange = {this.onEmailChanged}
 		        	/>
 			      </div>
 			      <div className="mv3">
-			        <label className="db fw6 lh-copy f6" for="password">Password</label>
+			        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
 			        <input 
 			        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
 			        	type="password" name="password"  id="password" 

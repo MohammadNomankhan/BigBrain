@@ -17,7 +17,7 @@ class Signin extends React.Component {
     this.setState({signInPassword: event.target.value})
   }
 
-  onSubmitSignIn = async () => {
+  onSubmitSignIn = async (e) => {
     const response = await fetch('http://localhost:3000/signin', {
       method: 'POST',
       mode : 'cors',
@@ -30,8 +30,9 @@ class Signin extends React.Component {
       })
     })
 
-    const jsonData = await response.json(); 
-    if(jsonData === 'success'){
+    const jsonData = await response.json();
+    if(jsonData.id){
+      this.props.loaduser(jsonData);
     	this.props.onRouteChange('home');
     }
       
