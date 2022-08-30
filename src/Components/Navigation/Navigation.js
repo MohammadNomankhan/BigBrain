@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Navigation = ( {onRouteChange, isSigned} ) => {
-		
+const Navigation = ( {onRouteChange, isSigned} ) => {	
 	if (isSigned) {
 		return (
 			<nav style={{display: 'flex', justifyContent: "flex-end"}}>
@@ -9,7 +8,6 @@ const Navigation = ( {onRouteChange, isSigned} ) => {
 	     	</nav>
      	)
 	} 
-
 	else {
 		return(
 			<nav style={{display: 'flex', justifyContent: "flex-end"}}>

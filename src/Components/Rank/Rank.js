@@ -2,7 +2,6 @@ import React from 'react'
 
 const Rank = ({name, enteries}) => {
 	return (
-
 		<div className='tc'>
 			<div className="white f3 center">
 			{`${name} your current rank is...`}
@@ -12,8 +11,6 @@ const Rank = ({name, enteries}) => {
 			</div>
 
 		</div>
-
-		
 	)
 }
 
