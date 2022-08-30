@@ -2,6 +2,7 @@ import React ,{ Component } from 'react';
 import './App.css';
 import Navigation from './Components/Navigation/Navigation'
 import 'tachyons'
+// import Clarifai from 'clarifai'
 import Logo from './Components/Logo/Logo'
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Signin from './Components/Signin/Signin'
@@ -9,12 +10,10 @@ import Register from './Components/Register/Register'
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
 import Rank from './Components/Rank/Rank'
 import Particle from './Components/Particle/Particle'
-import Clarifai from 'clarifai'
 
-
-const app = new Clarifai.App({
- apiKey: '97657ca333b3483aa09f72021562e8d9'
-});
+// const app = new Clarifai.App({
+//  apiKey: '97657ca333b3483aa09f72021562e8d9' 
+// });
 
 const initialState = {
       input: '',
@@ -37,7 +36,6 @@ class App extends Component {
     this.state = initialState;
 
   }
-
 
  loaduser = (data) => {
     this.setState({user : {
@@ -75,11 +73,23 @@ class App extends Component {
   }
 
 
-  onSubmitChange = (event) => {
+   onSubmitChange = (event) => {
     this.setState({ImageUrl: this.state.input});
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL,
-      this.state.input)
+    fetch('http://localhost:3000/imageUrl', {
+            method: 'POST',
+            mode : 'cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              input: this.state.input
+            })
+           })
+    .then(resp => resp.json())
+
+    // app.models
+    //   .predict(Clarifai.FACE_DETECT_MODEL,
+    //   this.state.input)
       .then(response => {
         if(response){
           fetch('http://localhost:3000/image', {
@@ -99,6 +109,7 @@ class App extends Component {
               )
             )
           })
+            .catch(console.log)
         }
         this.displayBox(this.calculateFaceLocation(response));
       })
