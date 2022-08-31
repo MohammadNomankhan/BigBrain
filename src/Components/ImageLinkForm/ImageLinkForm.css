@@ -12,12 +12,12 @@
 
 
 @media screen and (max-width: 799px) {
-	width: 90%,
 	.align-it {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		width: 90%;
 		/*padding: 5rem 3rem;*/
 	}
 	.w-70{
