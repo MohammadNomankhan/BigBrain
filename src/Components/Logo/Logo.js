@@ -5,7 +5,7 @@ import brain from './brain.png'
 
 const Logo = () => {
 	return (
-		<div>
+		<div className="for-mobile">
 			<Tilt style={{height: '100px', width: '100px'}}
 
 			    className="parallax-effect-glare-scale br2 shadow-3 ml3 tc custom-gbg h1 logo-media" 
