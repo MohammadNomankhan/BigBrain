@@ -31,8 +31,7 @@ body {
     align-items: center;
     padding: 2rem 1rem;
   }
-/*  .side {
-    margin-bottom: 3rem;
-    width: 100%;
-  }*/
+  .f3{
+    font-size: 1.25rem;
+  }
 }

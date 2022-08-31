@@ -5,9 +5,10 @@ import brain from './brain.png'
 
 const Logo = () => {
 	return (
+		<div>
 			<Tilt style={{height: '100px', width: '100px'}}
 
-			    className="parallax-effect-glare-scale br2 shadow-3 ml3 tc custom-gbg h1" 
+			    className="parallax-effect-glare-scale br2 shadow-3 ml3 tc custom-gbg h1 logo-media" 
 
 			    perspective={500}
 
@@ -24,7 +25,9 @@ const Logo = () => {
 		      </div>
 		    </div>
 
-		  </Tilt>
+		  	</Tilt>
+	  	</div>
+
 	)
 }
 

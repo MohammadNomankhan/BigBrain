@@ -2,3 +2,14 @@
 	background-image: linear-gradient(89deg, #04c8de 0%, #FF5EDF 100%);
 	
 }
+@media screen and (max-width: 799px) {
+  .logo-media{
+	margin-bottom: 1.5rem;
+	}
+	.outer-element{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
