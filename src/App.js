@@ -120,7 +120,7 @@ class App extends Component {
         <Navigation isSigned = {this.state.isSigned} onRouteChange = {this.onRouteChange} />
         {
           this.state.route === 'home' 
-          ? <div> 
+          ? <div className="App-sub"> 
               <Logo />
               <Rank name = {this.state.user.name} entries = {this.state.user.entries}/>
               <ImageLinkForm onInput = {this.onInputChange} onSubmit = {this.onSubmitChange}/>
