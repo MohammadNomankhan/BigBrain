@@ -26,7 +26,7 @@ class Register extends React.Component {
 
 	onSubmitted = async (e) => {	
 		e.preventDefault();
-    const response = await fetch('http://localhost:3000/register', {
+    const response = await fetch('https://sheltered-crag-91828.herokuapp.com/register', {
       method: 'POST',
       mode : 'cors',
       referrerPolicy: 'no-referrer', 

@@ -20,7 +20,7 @@ const initialState = {
         id: '',
         name: '',
         email: '',
-        enteries: 0,
+        entries: 0,
         joined: ''
 
       }
@@ -37,7 +37,7 @@ class App extends Component {
         id: data.id,
         name: data.name,
         email: data.email,
-        enteries: data.enteries,
+        entries: data.entries,
         joined: data.joined
     }})
  }
@@ -66,7 +66,7 @@ class App extends Component {
 
  onSubmitChange = (event) => {
   this.setState({ImageUrl: this.state.input});
-  fetch('http://localhost:3000/imageUrl', {
+  fetch('https://sheltered-crag-91828.herokuapp.com/imageUrl', {
     method: 'POST',
     mode : 'cors',
     headers: {
@@ -79,7 +79,7 @@ class App extends Component {
   .then(resp => resp.json())
   .then(response => {
     if(response){
-      fetch('http://localhost:3000/image', {
+      fetch('https://sheltered-crag-91828.herokuapp.com/image', {
         method: 'PUT',
         mode : 'cors',
         headers: {
@@ -92,7 +92,7 @@ class App extends Component {
         .then(res => res.json())
         .then(count => {
           this.setState(Object.assign(this.state.user, 
-            {enteries:count}
+            {entries:count}
           )
         )
       })
@@ -122,7 +122,7 @@ class App extends Component {
           this.state.route === 'home' 
           ? <div> 
               <Logo />
-              <Rank name = {this.state.user.name} enteries = {this.state.user.enteries}/>
+              <Rank name = {this.state.user.name} entries = {this.state.user.entries}/>
               <ImageLinkForm onInput = {this.onInputChange} onSubmit = {this.onSubmitChange}/>
               <FaceRecognition box = {this.state.box} ImageUrl={this.state.ImageUrl} />
             </div> 
