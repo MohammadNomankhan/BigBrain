@@ -9,3 +9,14 @@
 	background-size: 40px 60px;
 
 }
+
+
+@media screen and (max-width: 799px) {
+	.align-it {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		/*padding: 5rem 3rem;*/
+	}
+}
