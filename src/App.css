@@ -25,10 +25,11 @@ body {
 
 @media screen and (max-width: 799px) {
   .App {
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
-    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
   }
 /*  .side {
     margin-bottom: 3rem;
